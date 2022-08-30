@@ -1,8 +1,40 @@
 <header>
-  <h1>snapface</h1>
-  <nav>
-    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a routerLink="facesnaps" routerLinkActive="active">FaceSnaps</a>
-  </nav>
-  <button (click)="onAddNewFaceSnap()">insert</button>
+  <div class="a11y-nav"><!--accessibilite-->
+    <nav class="a11-nav">
+      <ul>
+        <li>
+          <a href="#activite">voir les activites du mois</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+  <div class="menuV2">
+    <a href="#" class="elm1" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+<!--      <img src="./images/logo/Booki.png" alt="le logo ici"  >-->
+      Follow
+    </a>
+    <nav>
+      <a class="elm2 link"  routerLink="facesnaps" routerLinkActive="active">Annonce</a>
+      <a  class="elm2 link"   (click)="onAddNewFaceSnap()">publier</a>
+    </nav>
+  </div>
 </header>
+<div class="info_resultat_filtre">
+  <p class="icone_resultat"><i class="fas fa-info"></i></p>
+  <p class="info">Plus de 500 logements sont disponibles dans cette ville</p>
+</div>
+
+
+<!-- old go refactor -->
+
+<!--<header class="header">-->
+<!--  <h1>snapface</h1>-->
+<!--  <nav>-->
+<!--    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>-->
+<!--    <a routerLink="facesnaps" routerLinkActive="active">FaceSnaps</a>-->
+<!--  </nav>-->
+<!--  <button (click)="onAddNewFaceSnap()">insert</button>-->
+<!--</header>-->
+
+

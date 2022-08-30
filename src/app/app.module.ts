@@ -27,7 +27,7 @@ import {AuthModule} from "./auth/auth.module";
     ReactiveFormsModule,
     CoreModule,
     LandingPageModule,
-    AuthModule
+    AuthModule,
   ],
   providers: [
   ],

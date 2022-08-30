@@ -3,28 +3,33 @@
 *  section 2
 *  Hebergments A Marseille
 **/
-.sec2{
+.sec2 {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
+
 .box_appear {
-  box-shadow: 1px 6px 8px #f1f1f1;/*droite-bas-degre-color */
+  box-shadow: 1px 6px 8px #f1f1f1;
+  /*droite-bas-degre-color */
 }
-.box_appear:hover{
+
+.box_appear:hover {
   transform: scale(0.9, 0.8);
 }
+
 .box_appear::after {
   opacity: 1;
 }
 
 .carte {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: black;
 }
-.main-sec2{
+
+.main-sec2 {
   display: flex;
   flex-wrap: wrap;
   border: 2px solid #F2F2F2;
@@ -35,11 +40,13 @@
   margin-right: 3%;
   width: 78%;
 }
-.main-sec2 h2{
+
+.main-sec2 h2 {
   padding-left: 10px;
   padding-bottom: 10px;
 }
-.les_box{
+
+.les_box {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -49,7 +56,7 @@
 * Les plus populaire
 * sidebar
 **/
-.sidebar{
+.sidebar {
   border: 2px solid #F2F2F2;
   border-radius: 20px;
   background-color: #F2F2F2;
@@ -58,23 +65,26 @@
   padding-left: 13px;
   padding-right: 13px;
 }
-.sidebar h2{
+
+.sidebar h2 {
   font-weight: bold;
 }
 
-.titre_sidebar{
+.titre_sidebar {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   padding: 10px;
   padding-top: 20px;
 }
-.titre_sidebar i{
+
+.titre_sidebar i {
   color: black;
   font-size: 22px;
   padding-top: 8px;
 }
-.box_sidebar{
+
+.box_sidebar {
   display: flex;
   background-color: white;
   border: 2px solid white;
@@ -82,35 +92,40 @@
   border-radius: 10px;
   flex-grow: 0;
 }
-.info_box_sidebar{
+
+.info_box_sidebar {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
   margin-top: 10px;
   width: 50%;
 }
-.titre_h4{
+
+.titre_h4 {
   font-size: 16px;
   font-weight: bold;
 }
 
-.sidebar-info__item2{
+.sidebar-info__item2 {
   font-size: 15px;
   margin-top: 10px;
 }
-.sidebar-info__item3{
+
+.sidebar-info__item3 {
   margin-top: auto;
 }
-.fas-color__none{
+
+.fas-color__none {
   color: gainsboro;
 }
-.image_box_sidebar{
+
+.image_box_sidebar {
   border: 1px solid white;
   width: 45%;
   height: 160px;
-
 }
-.image_box_sidebar img{
+
+.image_box_sidebar img {
   width: 100%;
   height: 160px;
   object-fit: cover;
@@ -119,34 +134,37 @@
   border-bottom-left-radius: 10px;
 }
 
-
 /***************************************
 * Responsive Tablette breakpoints 992px
 ************************************/
-
-@media only screen and (max-width:992px)  {
+@media only screen and (max-width: 992px) {
   /** section 2 **/
-  .sec2{
+  .sec2 {
     display: flex;
     flex-wrap: wrap;
   }
-  .main-sec2{
+
+  .main-sec2 {
     width: 100%;
     margin-bottom: 20px;
     margin-right: 0px;
   }
-  .les_box{
+
+  .les_box {
     flex-wrap: wrap;
   }
+
   /**sidebar section 2**/
-  .sidebar{
+  .sidebar {
     width: 100%;
     height: auto;
   }
-  .info_box_sidebar{
+
+  .info_box_sidebar {
     background-color: #FFFFFF;
     padding: 15px;
     width: 100%;
   }
-
 }
+
+/*# sourceMappingURL=face-snap-list.component.css.map */

@@ -1,5 +1,23 @@
-<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
-  <h2>{{ faceSnap.title | uppercase }}</h2>
-  <p>{{ faceSnap.description }}</p>
+<!--<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">-->
+<!--  <h2>{{ faceSnap.title | uppercase }}</h2>-->
+<!--  <p>{{ faceSnap.description }}</p>-->
+<!--  <button (click)="onViewFaceSnap()">VIEW</button>-->
+<!--</div>-->
+
+
+<div class="box box_appear">
+  <a (click)="onViewFaceSnap()"  class="carte">
+
+    <img src="{{faceSnap.imageUrl}}" alt="" class="src">
+    <h4>{{ faceSnap.title | uppercase }}</h4>
+    <p >  {{ faceSnap.description | lowercase }}</p>
+    <p>
+      <i class="fas fa-star bleu"></i>
+      <i class="fas fa-star bleu"></i>
+      <i class="fas fa-star bleu"></i>
+      <i class="fas fa-star bleu"></i>
+      <span class="videIco"><i class="fas fa-star"></i></span>
+    </p>
+  </a>
   <button (click)="onViewFaceSnap()">VIEW</button>
 </div>

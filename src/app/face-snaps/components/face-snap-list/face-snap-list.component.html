@@ -1,1 +1,44 @@
-<app-face-snap *ngFor="let faceSnap of faceSnaps$ | async" [faceSnap]="faceSnap"></app-face-snap>
+
+<!-- ok new -->
+
+<!-- debut deux -->
+<section class="sec2" id="hebergement">
+  <div class="main-sec2">
+    <h2>Hébergements à Marseille</h2>
+    <div class="les_box ">
+      <app-face-snap *ngFor="let faceSnap of faceSnaps$ | async" [faceSnap]="faceSnap"></app-face-snap>
+
+    </div>
+    <p class="afficherPlus"><a href="#">Afficher plus</a> </p>
+  </div>
+
+
+  <!-- une route api pour les 3 plus populare -->
+  <div class="sidebar">
+    <div class="titre_sidebar">
+      <h2>Les plus populaires</h2>
+      <p><i class="fas fa-chart-line"></i></p>
+    </div>
+    <div class="liste">
+      <a href="#"  class="carte">
+        <div class="box_sidebar box_appear">
+          <div class="image_box_sidebar">
+            <img src="./images/hebergements/1_xlarge/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg" alt="" class="src">
+          </div>
+          <div class="info_box_sidebar">
+            <span class="titre_h4">Hôtel Le soleil du matin</span>
+            <span class="sidebar-info__item2 "> Nuit à partir de 128€</span>
+            <span class="sidebar-info__item3">
+                                <i class="fas fa-star bleu"></i>
+                                <i class="fas fa-star bleu"></i>
+                                <i class="fas fa-star bleu"></i>
+                                <i class="fas fa-star bleu"></i>
+                                <i class="fas fa-star bleu"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
