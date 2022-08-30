@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {interval, Observable} from "rxjs";
+import {map, filter, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  logger(text:string){
+      console.log('je suis un tap icis'+text)
+  }
+
 }
+
