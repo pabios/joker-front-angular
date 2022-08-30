@@ -1,0 +1,24 @@
+/** footer **/
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #F2F2F2;
+  padding-left: 5%;
+  padding-right: 20%;
+}
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+/***************************************
+* Responsive Tablette breakpoints 992px
+************************************/
+@media only screen and (max-width: 992px) {
+  footer {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=footer.component.css.map */

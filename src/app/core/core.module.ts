@@ -5,19 +5,22 @@ import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule} from "@angular/router";
 import * as fr from "@angular/common/locales/fr";
 import {HttpClientModule} from "@angular/common/http";
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     HttpClientModule
   ],
-  exports:[
-    HeaderComponent
+  exports: [
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },
