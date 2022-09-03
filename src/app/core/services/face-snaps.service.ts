@@ -17,7 +17,8 @@ export class FaceSnapsService {
     return this.faceSnaps;
   }*/
   getAllFaceSnaps(): Observable<FaceSnap[]> {
-    return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps');
+    // return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps'); // api externe
+    return this.http.get<FaceSnap[]>('http://localhost:9000/index.php?action=postsApi')
   }
 
   // getFaceSnapById(faceSnapId: number): FaceSnap {
@@ -29,7 +30,9 @@ export class FaceSnapsService {
   //   }
   // }
   getFaceSnapById(faceSnapId: number): Observable<FaceSnap> {
-    return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`)
+    //http://localhost:9000/index.php?action=unPost&id=1
+   // return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`)
+    return this.http.get<FaceSnap>(`http://localhost:9000/index.php?action=unPost&id=${faceSnapId}`)
   }
 
   /*
@@ -44,12 +47,12 @@ export class FaceSnapsService {
         snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
       })),
       switchMap(updatedFaceSnap => this.http.put<FaceSnap>(
-        `http://localhost:3000/facesnaps/${faceSnapId}`,
+        `http://localhost:9000/index.php?action=update`,
         updatedFaceSnap)
       )
     );
   }
-
+// dans switchMat ==> `http://localhost:3000/facesnaps/${faceSnapId}`,
   // addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }) {
   //   const faceSnap: FaceSnap = {
   //     ...formValue,
@@ -71,9 +74,14 @@ export class FaceSnapsService {
         id: previousFacesnap.id + 1
       })),
       switchMap(newFacesnap => this.http.post<FaceSnap>(
-        'http://localhost:3000/facesnaps',
+        'http://localhost:9000/index.php?action=insert ',
         newFacesnap)
-      )
+      )// http://localhost:3000/facesnaps
     );
+  }
+
+  // ajouter  | joker
+  ajout(){
+
   }
 }

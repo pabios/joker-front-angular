@@ -15,11 +15,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(): void{
+  onLogin():void {
     this.auth.login();
     // on verifiera si tout ok cote back
-    this.router.navigateByUrl('/facesnaps');
+    // this.auth.logIn();
 
+     this.router.navigateByUrl('/facesnaps');
   }
 
 }
