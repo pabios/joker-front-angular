@@ -6,7 +6,18 @@
   <p>{{ faceSnap.description }}</p>
   <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
   <p>
+
     <button (click)="onSnap(faceSnap.id)">{{ buttonText }}</button>
     <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps + ', 0)'}">🤌 {{ faceSnap.snaps }}</span>
   </p>
+  <form [formGroup]="snapForm">
+    <div class="form-group">
+      <input  #like type="hidden" value="{{faceSnap.id}}"  />
+      <input  #lId type="hidden" value="{{faceSnap.snaps+1}}" />
+    </div>
+    <div class="action-buttons">
+      <button type="submit"  (click)="onSendReact(like.value,lId.value)"
+              [disabled]="snapForm.invalid">Enregistrer</button>
+    </div>
+  </form>
 </div>

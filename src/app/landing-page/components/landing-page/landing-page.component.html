@@ -6,6 +6,8 @@
   <form #emailForm="ngForm"(ngSubmit)="onSubmitForm(emailForm)">
     <label for="emailInput">Inscrivez-vous</label>
     <input name="userEmail" type="email" id="emailInput" [(ngModel)]="userEmail"/>
+    <input name="like" type="text" id="like" [(ngModel)]="like"/>
+    <input name="id" type="text" id="id" [(ngModel)]="like"/>
     <button type="submit">envyer!</button>
   </form>
 </div>

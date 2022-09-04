@@ -4,6 +4,7 @@ import { FaceSnapsService } from '../../../core/services/face-snaps.service';
 import { ActivatedRoute } from '@angular/router';
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
+import {FormGroup, NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-single-face-snap',
@@ -13,6 +14,7 @@ import {tap} from "rxjs/operators";
 export class SingleFaceSnapComponent implements OnInit {
   faceSnap!: FaceSnap;
   faceSnap$!: Observable<FaceSnap>;
+  snapForm!: FormGroup;
 
   buttonText!: string;
 
@@ -53,4 +55,24 @@ export class SingleFaceSnapComponent implements OnInit {
       ).subscribe();
     }
   }
+
+  /**
+   * likons ce truc
+   */
+
+
+
+  onSendReact(faceSnapId: string,like:string){
+    const formData : FormData = new FormData();
+    formData.append('like',like.toString())
+    formData.append('lId',faceSnapId.toString())
+
+    this.faceSnapsService.reaction(formData).subscribe(
+      (res=>{
+        console.log(res)
+      })
+    )
+  }
+
+
 }

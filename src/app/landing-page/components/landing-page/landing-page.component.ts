@@ -9,6 +9,8 @@ import {NgForm} from "@angular/forms";
 })
 export class LandingPageComponent implements OnInit {
   userEmail!: string;
+  like!:number;
+  id!:number;
 
   constructor(private router: Router) { }
 

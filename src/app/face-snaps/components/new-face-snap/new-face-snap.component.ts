@@ -54,4 +54,28 @@ export class NewFaceSnapComponent implements OnInit {
        tap(() => this.router.navigateByUrl('/facesnaps'))
      ).subscribe();
   }
+
+
+  /**
+   *  nouvelle enregistrement
+   * @param title
+   * @param description
+   * @param photo
+   * @param laDate
+   * @param location
+   */
+  onSend(title:string,description:string,photo:string,laDate:string,location:string){
+    const formData : FormData = new FormData();
+    formData.append('title',title)
+    formData.append('description',description)
+    formData.append('photo',photo)
+    formData.append('location',location)
+    formData.append('laDate',laDate)
+
+    this.faceSnapsService.ajout(formData).subscribe(
+      (res=>{
+        console.log(res)
+      })
+    )
+  }
 }

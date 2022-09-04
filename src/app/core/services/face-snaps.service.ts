@@ -43,16 +43,17 @@ export class FaceSnapsService {
   snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): Observable<FaceSnap> {
     return this.getFaceSnapById(faceSnapId).pipe(
       map(faceSnap => ({
-        ...faceSnap,
-        snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1)
+        snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1),
+        id: faceSnapId
       })),
-      switchMap(updatedFaceSnap => this.http.put<FaceSnap>(
-        `http://localhost:9000/index.php?action=update`,
+      switchMap(updatedFaceSnap => this.http.post<any>(
+        `http://localhost:9000/index.php?action=reaction`,
         updatedFaceSnap)
       )
     );
-  }
-// dans switchMat ==> `http://localhost:3000/facesnaps/${faceSnapId}`,
+  }// dans switchMat ==> `http://localhost:3000/facesnaps/${faceSnapId}`,
+  // this.http.post<any>('http://localhost:9000/index.php?action=addPostApi',formData)
+
   // addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string }) {
   //   const faceSnap: FaceSnap = {
   //     ...formValue,
@@ -80,8 +81,17 @@ export class FaceSnapsService {
     );
   }
 
-  // ajouter  | joker
-  ajout(){
+  /**
+   * nouveau enregistrement
+   * @param formData
+   */
+  ajout(formData:FormData):Observable<any>{
+      return this.http.post<any>('http://localhost:9000/index.php?action=addPostApi',formData)
+  }
+
+  reaction(formData:FormData):Observable<any>{
+    return this.http.post<any>('http://localhost:9000/index.php?action=reaction',
+      formData)
 
   }
 }
