@@ -19,21 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onLogin(email:string,password:string):void {
-  //   //this.auth.login();
-  //
-  //     const formData : FormData = new FormData();
-  //     formData.append('email',email)
-  //     formData.append('password',password)
-  //
-  //     this.auth.logIn(formData).subscribe(
-  //       (res=>{
-  //         console.log(res)
-  //       })
-  //     )
-  //
-  //    this.router.navigateByUrl('/facesnaps');
-  // }
+
 
   onLogin(email:string,password:string):void {
     //this.auth.login();

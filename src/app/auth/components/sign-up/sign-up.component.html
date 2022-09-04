@@ -1,6 +1,6 @@
 <form [formGroup]="snapForm">
   <div class="form-card">
-    <h2>Connexion</h2>
+    <h2>Inscription</h2>
     <div class="form-group">
       <label for="email">Email</label>
       <input #email type="text" id="email">
@@ -10,9 +10,9 @@
       <input #password type="password" id="password">
     </div>
     <div class="action-buttons">
-      <button type="submit" #signIn (click)="onLogin(email.value,password.value)">Connexion</button>
+      <button type="submit" #signIn (click)="signUp(email.value,password.value)">je m'inscrit</button>
     </div>
-   <span class="action-buttons"> ou  <button routerLink="/auth/signUp">s'inscrire</button></span>
+    <span class="action-buttons"> ou  <button routerLink="/auth/login">se connecter</button></span>
   </div>
 </form>
 

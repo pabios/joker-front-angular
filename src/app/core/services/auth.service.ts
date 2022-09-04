@@ -25,9 +25,9 @@ export class AuthService{
    * connexion
    * @param formData
    */
-  // logIn(formData:FormData):Observable<any>{
-  //   return this.http.post<any>('http://localhost:9000/?action=connexionApi',formData)
-  // }
+  signUp(formData:FormData):Observable<any>{
+    return this.http.post<any>('http://localhost:9000/?action=signUpApi',formData)
+  }
 
   logIn():Observable<any> {
     return this.http.get<any>("http://localhost:9000/index.php?action=listUsersApi");
