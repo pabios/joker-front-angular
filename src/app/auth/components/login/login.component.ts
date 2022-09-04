@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../core/services/auth.service";
 import {Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
+import {sha512} from "js-sha512";
 
 @Component({
   selector: 'app-login',
@@ -36,20 +37,18 @@ export class LoginComponent implements OnInit {
 
   onLogin(email:string,password:string):void {
     //this.auth.login();
-
-    console.log(this.auth.sha512("my string for hashing").then(x => console.log(x)))
-
+   // console.log(sha512(password));
 
     const obs$ = this.auth.logIn().subscribe(res=>{
       console.log(res)
       const user = res.find((u:any)=>{
-        return u.email === email && u.password === password
+        return u.email === email && u.password === sha512(password)
       });
       if(user){
-        alert('Login Succesful');
+        //alert('Login Succesful');
         console.log('login succes')
-        this.snapForm.reset()
-        this.router.navigate(["home"])
+       // this.snapForm.reset()
+        this.router.navigateByUrl('/facesnaps').then(r => true);
       }else{
         alert("user not found")
         console.log('user not found')

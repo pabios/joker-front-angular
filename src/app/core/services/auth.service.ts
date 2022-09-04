@@ -33,11 +33,7 @@ export class AuthService{
     return this.http.get<any>("http://localhost:9000/index.php?action=listUsersApi");
   }
 
-    sha512(str:string) {
-    return crypto.subtle.digest("SHA-512", new TextEncoder().encode(str)).then(buf => {
-      return Array.prototype.map.call(new Uint8Array(buf), x=>((x.toString(16)).slice(-2))).join('');
-    });
-  }
+
 }
 
 
