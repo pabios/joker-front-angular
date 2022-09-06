@@ -1,4 +1,4 @@
-# Snapface
+# joker snapface api php
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 
@@ -18,3 +18,9 @@ tap sort de l'observable sans y touche (i.e: executer une autre fonction et cont
 
 
 ## Operateur Haut niveau
+
+
+### basique auth
+
+#3 jwt
+# uuid in bdd => api key 

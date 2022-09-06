@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../core/services/auth.service";
 import {Router} from "@angular/router";
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {sha512} from "js-sha512";
 
 @Component({
@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.snapForm = new FormGroup({
+      email: new FormControl()
+    });
   }
 
 
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
         //alert('Login Succesful');
         console.log('login succes')
        // this.snapForm.reset()
-        this.router.navigateByUrl('/facesnaps').then(r => true);
+        this.router.navigateByUrl('/facesnaps');
       }else{
         alert("user not found")
         console.log('user not found')

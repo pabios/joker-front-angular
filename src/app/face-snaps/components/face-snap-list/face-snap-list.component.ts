@@ -12,12 +12,14 @@ export class FaceSnapListComponent implements OnInit {
 
   faceSnaps!: FaceSnap[];
   faceSnaps$!: Observable<FaceSnap[]>
+  troisLast$!: Observable<any>;
 
   constructor(private faceSnapsService: FaceSnapsService) { }
 
   ngOnInit(): void {
     //this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
     this.faceSnaps$ = this.faceSnapsService.getAllFaceSnaps();
+    this.troisLast$ = this.faceSnapsService.troisDernier();
   }
 
 }

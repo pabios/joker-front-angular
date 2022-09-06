@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl :'http://localhost:3000',
-  urlApi:'http//localhost:9000'
+  urlApi:'http//localhost:9000',
+  token: 'xxxx.xxxx.yyyy.zzzzz'
 };
 
 /*

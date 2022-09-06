@@ -1,7 +1,15 @@
-<div class="landing-block">
-  <img src="../../../../assets/snapface.png" alt="Snapface logo">
-  <div class="landing-links">
-    <button (click)="onContinue()">Continuer vers Snapface</button>
+<div class="container" >
+
+<div  *ngFor="let style of style$ | async">
+  <h1 style="{{style.titre}}"> TITRE site</h1>
+  <p style="{{style.paragraphe}}">
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, autem dolore id labore obcaecati qui sequi voluptatum. Aliquam culpa dolores est exercitationem nostrum officia pariatur, perferendis quam unde veniam! Eaque.</span><span>Architecto assumenda consectetur cum deserunt ea, facere id ipsa modi nulla placeat quas qui quis repellendus, sed tenetur unde vero vitae. Atque beatae earum, et eum laborum porro quo tempore?</span><span>Adipisci amet aspernatur assumenda atque blanditiis culpa cupiditate deserunt doloremque doloribus ex id impedit magni minus natus pariatur sequi soluta tempore, veritatis voluptatem, voluptates? Ad cumque illum iure quisquam similique?</span><span>Enim, magni sapiente? Accusamus accusantium adipisci architecto dolorum eos esse fugit harum magnam officia perspiciatis, possimus sint suscipit totam! Consectetur eaque expedita id iusto labore placeat ut velit veritatis, voluptatibus.</span><span>Accusantium ad consequuntur dolores facere iusto odio, officia quisquam, repellat, unde veniam voluptate voluptatibus. Harum hic iusto magnam nam nihil odio officia omnis porro, provident, quaerat rem rerum tempore ullam!</span>
+  </p>
+  <ul>
+    <li><a href="" style="{{style.lien}}"> bonjour lien</a></li>
+  </ul>
+  <div  >
+    <button (click)="onContinue()">Continuer vers Folo</button>
   </div>
   <form #emailForm="ngForm"(ngSubmit)="onSubmitForm(emailForm)">
     <label for="emailInput">Inscrivez-vous</label>
@@ -12,3 +20,4 @@
   </form>
 </div>
 
+</div>

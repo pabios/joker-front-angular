@@ -26,11 +26,17 @@ export class AuthService{
    * @param formData
    */
   signUp(formData:FormData):Observable<any>{
-    return this.http.post<any>('http://localhost:9000/?action=signUpApi',formData)
+    return this.http.post<any>('http://localhost:9000/signUp',formData,{headers: {
+      'X_API_KEY':this.token
+      }})
   }
 
   logIn():Observable<any> {
-    return this.http.get<any>("http://localhost:9000/index.php?action=listUsersApi");
+    // return this.http.get<any>("http://localhost:9000/index.php?action=listUsersApi");
+    return this.http.get<any>("http://localhost:9000/login",
+      {headers: {
+          'X_API_KEY':this.token
+        }});
   }
 
 

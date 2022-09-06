@@ -4,12 +4,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {map, switchMap} from "rxjs/operators";
+import {AuthService} from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaceSnapsService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private auth: AuthService) {
   }
   //faceSnaps: FaceSnap[] = [];
 
@@ -18,7 +20,8 @@ export class FaceSnapsService {
   }*/
   getAllFaceSnaps(): Observable<FaceSnap[]> {
     // return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps'); // api externe
-    return this.http.get<FaceSnap[]>('http://localhost:9000/index.php?action=postsApi')
+    // return this.http.get<FaceSnap[]>('http://localhost:9000/index.php?action=postsApi')
+    return this.http.get<FaceSnap[]>('http://localhost:9000/posts')
   }
 
   // getFaceSnapById(faceSnapId: number): FaceSnap {
@@ -32,7 +35,7 @@ export class FaceSnapsService {
   getFaceSnapById(faceSnapId: number): Observable<FaceSnap> {
     //http://localhost:9000/index.php?action=unPost&id=1
    // return this.http.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`)
-    return this.http.get<FaceSnap>(`http://localhost:9000/index.php?action=unPost&id=${faceSnapId}`)
+    return this.http.get<FaceSnap>(`http://localhost:9000/post/${faceSnapId}`)
   }
 
   /*
@@ -86,12 +89,24 @@ export class FaceSnapsService {
    * @param formData
    */
   ajout(formData:FormData):Observable<any>{
-      return this.http.post<any>('http://localhost:9000/index.php?action=addPostApi',formData)
+    // return this.http.post<any>('http://localhost:9000/index.php?action=addPostApi',formData)
+    return this.http.post<any>('http://localhost:9000/add',formData)
   }
 
   reaction(formData:FormData):Observable<any>{
-    return this.http.post<any>('http://localhost:9000/index.php?action=reaction',
+    // return this.http.post<any>('http://localhost:9000/index.php?action=reaction',
+    return this.http.post<any>('http://localhost:9000/react',
       formData)
-
   }
+
+  nbPost():Observable<any> {
+    // return this.http.get<any>("http://localhost:9000/index.php?action=nbPostApi");
+    return this.http.get<any>("http://localhost:9000/countPost");
+  }
+  troisDernier():Observable<any>{
+    return this.http.get<any>("http://localhost:9000/troisDernier");
+  }
+
+
+
 }

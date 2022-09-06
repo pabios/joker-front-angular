@@ -77,5 +77,7 @@ export class NewFaceSnapComponent implements OnInit {
         console.log(res)
       })
     )
+     this.router.navigateByUrl('/facesnaps');
+
   }
 }

@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  snapForm!: FormGroup;
+  snapFormSign!: FormGroup;
 
   constructor(private auth:AuthService,
               private router: Router) { }
