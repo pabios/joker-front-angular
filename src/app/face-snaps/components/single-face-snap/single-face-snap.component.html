@@ -1,19 +1,24 @@
-<div class="face-snap-card" *ngIf="faceSnap$ | async as faceSnap" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
+<div class="face-snap-card"   *ngIf="faceSnap$ | async as faceSnap" [ngClass]="{ snapped: buttonText === 'Oops, unSnap!' }">
   <h2>{{ faceSnap.title | uppercase }}</h2>
-  <a routerLink="/facesnaps">Back</a>
+  <a routerLink="/facesnaps">Back{{this.info}} ok</a>
   <p>Mis en ligne {{ faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
   <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
   <p>{{ faceSnap.description }}</p>
   <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
-  <p>
-
+  <p  *ngIf="lesLikes$ | async as liks" >
+    <span>
+      {{liks}} coucous
+    </span>
     <button (click)="onSnap(faceSnap.id)">{{ buttonText }}</button>
-    <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps + ', 0)'}">🤌 {{ faceSnap.snaps }}</span>
+    <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps + ', 0)'}">
+      👍 {{ faceSnap.snaps }} | {{this.info}}
+      <i class="fa-regular fa-thumbs-up"></i>
+    </span>
   </p>
-  <form [formGroup]="snapForm">
-    <div class="form-group">
-      <input  #like type="hidden" value="{{faceSnap.id}}"  />
-      <input  #lId type="hidden" value="{{faceSnap.snaps+1}}" />
+  <form  [formGroup]="snapForm">
+    <div class="form-group"  >
+      <input  #like type="hidden" id="like" value="{{faceSnap.id}}" formControlName="like"  />
+      <input  #lId type="hidden" id="lId" value="{{faceSnap.snaps+1}}" formControlName="lId" />
     </div>
     <div class="action-buttons">
       <button type="submit"  (click)="onSendReact(like.value,lId.value)"

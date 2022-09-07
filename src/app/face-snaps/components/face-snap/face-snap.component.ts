@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../../../core/models/face-snap.model';
 import { FaceSnapsService } from '../../../core/services/face-snaps.service';
 import { Router } from '@angular/router';
+import {NotificationService} from "../../../core/services/notification.service";
 
 @Component({
   selector: 'app-face-snap',
@@ -13,7 +14,8 @@ export class FaceSnapComponent implements OnInit {
   buttonText!: string;
 
   constructor(private faceSnapsService: FaceSnapsService,
-              private router: Router) {}
+              private router: Router,
+              private puserS: NotificationService) {}
 
   ngOnInit() {
     this.buttonText = 'Oh Snap!';

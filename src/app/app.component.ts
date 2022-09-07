@@ -9,6 +9,7 @@ import {map, filter, tap} from "rxjs/operators";
 })
 export class AppComponent implements OnInit {
 
+
   ngOnInit() {
 
   }
@@ -16,6 +17,8 @@ export class AppComponent implements OnInit {
   logger(text:string){
       console.log('je suis un tap icis'+text)
   }
+
+
 
 }
 

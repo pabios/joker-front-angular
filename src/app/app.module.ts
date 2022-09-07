@@ -16,6 +16,8 @@ import {CoreModule} from "./core/core.module";
 import {FaceSnapsModule} from "./face-snaps/face-snaps.module";
 import {LandingPageModule} from "./landing-page/landing-page.module";
 import {AuthModule} from "./auth/auth.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import {AuthModule} from "./auth/auth.module";
     CoreModule,
     LandingPageModule,
     AuthModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
   ],

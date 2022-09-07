@@ -22,7 +22,6 @@ import {FaceSnpasRoutingModule} from "./face-snpas-routing.module";
     ReactiveFormsModule,
     FaceSnpasRoutingModule,
     FormsModule
-
   ],
   exports:[
     FaceSnapComponent,

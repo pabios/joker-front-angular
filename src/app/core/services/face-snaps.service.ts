@@ -3,16 +3,23 @@ import { FaceSnap } from '../models/face-snap.model';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
-import {map, switchMap} from "rxjs/operators";
+import {filter, map, switchMap, tap} from "rxjs/operators";
 import {AuthService} from "./auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FaceSnapsService {
   constructor(private http: HttpClient,
-              private auth: AuthService) {
+              private auth: AuthService,
+              private toastr: ToastrService) {
   }
+
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
+
   //faceSnaps: FaceSnap[] = [];
 
   /*getAllFaceSnaps(): FaceSnap[] {
@@ -43,16 +50,21 @@ export class FaceSnapsService {
     const faceSnap = this.getFaceSnapById(faceSnapId);
     snapType === 'snap' ? faceSnap.snaps++ : faceSnap.snaps--;
   }*/
+  like!:number;
+  lId!:number;
   snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): Observable<FaceSnap> {
+
     return this.getFaceSnapById(faceSnapId).pipe(
       map(faceSnap => ({
         snaps: faceSnap.snaps + (snapType === 'snap' ? 1 : -1),
-        id: faceSnapId
+        id: faceSnapId,
       })),
+
       switchMap(updatedFaceSnap => this.http.post<any>(
-        `http://localhost:9000/index.php?action=reaction`,
+        `http://localhost:9000/react`,
         updatedFaceSnap)
       )
+
     );
   }// dans switchMat ==> `http://localhost:3000/facesnaps/${faceSnapId}`,
   // this.http.post<any>('http://localhost:9000/index.php?action=addPostApi',formData)
@@ -97,6 +109,12 @@ export class FaceSnapsService {
     // return this.http.post<any>('http://localhost:9000/index.php?action=reaction',
     return this.http.post<any>('http://localhost:9000/react',
       formData)
+  }
+
+  hello(id:number,like:number):Observable<any>{
+    // return this.http.post<any>('http://localhost:9000/index.php?action=reaction',
+    return this.http.post<any>('http://localhost:9000/react',
+      {id:id,like:like})
   }
 
   nbPost():Observable<any> {
